@@ -1,4 +1,7 @@
-import { presetUno, presetAttributify, presetIcons, defineConfig } from 'unocss';
+import {
+  presetUno, presetAttributify, presetIcons, defineConfig,
+  transformerVariantGroup, transformerDirectives
+} from 'unocss';
 
 export default defineConfig({
   cli: {
@@ -8,15 +11,15 @@ export default defineConfig({
             'resources/**/*.blade.php',
             'resources/**/*.ts',
             'resources/**/*.js',
-            'resources/**/*.vue',
         ],
         outFile: 'public/assets/css/uno.css'
     }
   },
   theme: {
     colors: {
-      primary: '#FF0000',
-      secondary: '#FFBBB8',
+      primary: '#0d060f',
+      secondary: '#1e2824',
+      tertiary: '#5d3c18',
       success: '#39FF14',
       danger: '#ff4141',
       info: '#4589D6',
@@ -40,5 +43,9 @@ export default defineConfig({
         mdi: () => import('@iconify-json/mdi/icons.json').then(i => i.default)
       }
     })
+  ],
+  transformers: [
+    transformerVariantGroup(),
+    transformerDirectives()
   ]
 });

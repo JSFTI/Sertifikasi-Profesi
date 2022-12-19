@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OurClientController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,8 +25,11 @@ Route::get('/produk-kami', [HomeController::class, 'ourProducts'])->name('index.
 Route::get('/kontak-kami', [HomeController::class, 'contactUs'])->name('index.contactUs');
 Route::get('/about-us', [HomeController::class, 'aboutUs'])->name('index.aboutUs');
 
+Route::get('/klien-kami', [OurClientController::class, 'index'])->name('ourClients');
+
 Route::get('/artikel/{slug}', [ArticleController::class, 'show'])->name('article');
 Route::get('/event/{slug}', [ArticleController::class, 'show'])->name('event');
+Route::get('/gallery/{slug}', [GalleryController::class, 'show'])->name('gallery');
 
 Route::get('/sign-in', function(){
     return view('profile');

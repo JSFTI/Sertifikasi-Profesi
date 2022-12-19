@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Models\Event;
+use App\Models\Gallery;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -18,6 +19,11 @@ class HomeController extends Controller
             ->orderBy('published_at', 'DESC')
             ->limit(4)
             ->get(['id', 'title', 'thumbnail', 'slug', 'location', 'user_id', 'published_at']);
+
+        $galleries = Gallery::with('thumbnail')
+            ->limit(4)
+            ->orderBy('created_at')
+            ->get();
         
         return view('main', [
             'title' => 'Beranda',
@@ -26,7 +32,8 @@ class HomeController extends Controller
             ],
             'data' => [
                 'articles' => $articles,
-                'events' => $events
+                'events' => $events,
+                'galleries' => $galleries
             ]
         ]);
     }

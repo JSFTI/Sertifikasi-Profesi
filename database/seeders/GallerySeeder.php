@@ -33,6 +33,7 @@ class GallerySeeder extends Seeder
 
             $gallery = new Gallery();
             $gallery->name = $factory->sentence(6);
+            $gallery->slug = Str::slug($gallery->name);
             $gallery->save();
 
             for($j = 0; $j < $images_count; $j++){

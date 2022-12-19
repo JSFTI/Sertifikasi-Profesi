@@ -75,6 +75,23 @@
     <h2 class="text-center text-3xl font-bold">
       <span class="underline-pseudo">Galery Foto</span>
     </h2>
+    <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-5 mt-10">
+      @foreach ($data['galleries'] as $gallery)
+        <div class="shadow shadow-tertiary h-full">
+          <div class="flex flex-col h-full">
+            <img class="w-full aspect-ratio-16/9 object-cover" src="{{ $gallery->thumbnail->url }}" alt="{{ $article->title }}" />
+            <div class="flex flex-col p-4 h-full">
+              <h3 class="text-lg mb-4">
+                {{ $gallery->name }}
+              </h3>
+              <a href="{{ url()->route('gallery', [$gallery->slug]) }}" class="a-btn mt-auto ml-auto">
+                Lihat Foto
+              </a>
+            </div>
+          </div>
+        </div>
+      @endforeach
+    </div>
   </section>
 </article>
 @endsection

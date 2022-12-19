@@ -14,7 +14,7 @@
       Hubungi Kami
     </span>
   </h2>
-  <div class="flex gap-5 mt-10 flex-col xl:flex-row">
+  <div class="flex gap-10 mt-10 flex-col xl:flex-row">
     <section class="w-full xl:w-1/3 shadow shadow-tertiary p-3 lg:p-10 text-xl font-600 flex flex-col gap-10">
       <a href="tel:+62 0812345678910" class="flex items-center gap-10">
         <div class="i-mdi:phone text-3xl"></div>
@@ -37,10 +37,13 @@
         <span>Instagram</span>
       </a>
     </section>
-    <section class="flex-grow flex justify-center">
+    <section class="flex-grow shadow shadow-tertiary p-5">
+      <p class="mb-5">
+        Temui kami di:<br />
+        <strong>Jalan Medan No 4, Medan, Sumatera Utara</strong>
+      </p>
       <iframe
-        width="600"
-        height="450"
+        class="w-full min-h-100"
         style="border:0"
         loading="lazy"
         allowfullscreen

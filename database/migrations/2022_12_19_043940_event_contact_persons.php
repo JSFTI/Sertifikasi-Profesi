@@ -13,10 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('event_contact_persons', function(Blueprint $table){
+        Schema::create('event_contact_people', function(Blueprint $table){
             $table->bigIncrements('id');
             $table->bigInteger('event_id')->unsigned();
             $table->string('name');
+            $table->string('contact');
 
             $table->foreign('event_id')->references('id')->on('events')->cascadeOnDelete()->cascadeOnUpdate();
         });
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('event_contact_persons');
+        Schema::dropIfExists('event_contact_people');
     }
 };

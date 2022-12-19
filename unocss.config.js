@@ -29,7 +29,7 @@ export default defineConfig({
   },
   shortcuts: [
     {
-      'a-btn': 'rounded-1 px-4 py-2 bg-neutral hover:(shadow-md shadow-gray) transition',
+      'a-btn': 'rounded-1 px-4 py-2 bg-secondary hover:(shadow shadow-gray) transition',
     },
     [/^a-btn-(.*)-(.*)$/, ([, theme, shadow]) => {
       return `bg-${theme} hover:shadow-${shadow}`;

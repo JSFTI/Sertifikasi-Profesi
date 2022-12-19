@@ -13,14 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('gallery_image', function(Blueprint $table){
+        Schema::create('gallery_images', function(Blueprint $table){
             $table->bigIncrements('id');
             $table->bigInteger('gallery_id')->unsigned();
-            $table->bigInteger('image_id')->unsigned();
+            $table->string('filename');
+            $table->string('caption')->nullable();
+            $table->string('url');
+
+            $table->timestamps();
 
             $table->foreign('gallery_id')->references('id')->on('galleries')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->foreign('image_id')->references('id')->on('images')->cascadeOnDelete()->cascadeOnUpdate();
-            
         });
     }
 
@@ -31,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('galery_image');
+        Schema::dropIfExists('gallery_images');
     }
 };

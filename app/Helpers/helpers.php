@@ -9,8 +9,8 @@ if(!function_exists('navs_activate')){
       url('/'),
       url('/profile'),
       url('/visi-misi'),
-      url('/produk'),
-      url('/kontak'),
+      url('/produk-kami'),
+      url('/kontak-kami'),
       url('/tentang-kami')
     ];
 

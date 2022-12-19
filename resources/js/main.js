@@ -8,6 +8,13 @@ window.scrollToCurrentHome = function(el){
   el.scrollLeft = active.offsetLeft;
 }
 
+window.handleClickedOverlay = function(el){
+  const target = el.target;
+  if(target.id === 'main-content' && window.innerWidth <= 1024){
+    Alpine.store('sidebar').expanded = false;
+  }
+}
+
 window.Alpine = Alpine;
 
 Alpine.plugin(collapse);

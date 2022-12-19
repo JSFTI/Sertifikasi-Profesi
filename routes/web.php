@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -21,6 +22,9 @@ Route::get('/visi-misi', [HomeController::class, 'visionMission'])->name('index.
 Route::get('/produk-kami', [HomeController::class, 'ourProducts'])->name('index.ourProducts');
 Route::get('/kontak-kami', [HomeController::class, 'contactUs'])->name('index.contactUs');
 Route::get('/about-us', [HomeController::class, 'aboutUs'])->name('index.aboutUs');
+
+Route::get('/artikel/{slug}', [ArticleController::class, 'show'])->name('article');
+Route::get('/event/{slug}', [ArticleController::class, 'show'])->name('event');
 
 Route::get('/sign-in', function(){
     return view('profile');

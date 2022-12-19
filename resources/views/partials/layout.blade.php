@@ -23,7 +23,10 @@
         :class="{'opened-sidenav': $store.sidebar.expanded}"
     >
         @include('partials.navigation')
-        <main id="main-content" class="mb-20">
+        <main
+            id="main-content" class="mb-20"
+            @@click="handleClickedOverlay"
+        >
             @yield('content')
         </main>
         @include('partials.footer')

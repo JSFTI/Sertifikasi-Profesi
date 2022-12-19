@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,13 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function (Request $request) {
-    return view('profile');
-});
-
-Route::get('/visi-misi', function () {
-    return view('profile');
-});
+Route::get('/', [HomeController::class, 'index'])->name('index');
+Route::get('/profil', [HomeController::class, 'profile'])->name('index.profile');
+Route::get('/visi-misi', [HomeController::class, 'visionMission'])->name('index.visionMission');
+Route::get('/produk-kami', [HomeController::class, 'ourProducts'])->name('index.ourProducts');
+Route::get('/kontak-kami', [HomeController::class, 'contactUs'])->name('index.contactUs');
+Route::get('/about-us', [HomeController::class, 'aboutUs'])->name('index.aboutUs');
 
 Route::get('/sign-in', function(){
     return view('profile');

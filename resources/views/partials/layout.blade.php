@@ -4,6 +4,12 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
+        @if (isset($metas) && count($metas) > 0)
+            @foreach ($metas as $name => $content)
+                <meta name="{{ $name }}" content="{{ $content }}" />
+            @endforeach
+        @endif
+
         <title>{{ $title ?? config('app.name') }}</title>
         @include('partials.imports')  
         @vite(['resources/css/main.scss', 'resources/js/main.js'])

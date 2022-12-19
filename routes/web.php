@@ -29,7 +29,9 @@ Route::get('/klien-kami', [OurClientController::class, 'index'])->name('ourClien
 
 Route::get('/artikel/{slug}', [ArticleController::class, 'show'])->name('article');
 Route::get('/event/{slug}', [ArticleController::class, 'show'])->name('event');
-Route::get('/gallery/{slug}', [GalleryController::class, 'show'])->name('gallery');
+
+Route::get('/galery', [GalleryController::class, 'index'])->name('gallery');
+Route::get('/galery/{slug}', [GalleryController::class, 'show'])->name('gallery.show');
 
 Route::get('/sign-in', function(){
     return view('profile');

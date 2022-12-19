@@ -2,7 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@alpinejs/collapse': ^3.10.5
-  '@iconify-json/mdi': ^1.1.38
+  '@iconify-json/mdi': ^1.1.39
   '@unocss/cli': ^0.47.6
   '@vitejs/plugin-vue': ^4.0.0
   alpinejs: ^3.10.5
@@ -23,7 +23,7 @@ dependencies:
   vue: 3.2.45
 
 devDependencies:
-  '@iconify-json/mdi': 1.1.38
+  '@iconify-json/mdi': 1.1.39
   '@unocss/cli': 0.47.6
   '@vitejs/plugin-vue': 4.0.0_vite@4.0.2+vue@3.2.45
   axios: 1.2.1
@@ -282,8 +282,8 @@ packages:
     dev: true
     optional: true
 
-  /@iconify-json/mdi/1.1.38:
-    resolution: {integrity: sha512-h2D2vDMAFnHdIJL9OkamAVsmc0gME4Qn/jBcqo4jsqUVGC5c6Vv/IjdbTCrHc2KsUT4teohud9qTU9ciPDNIhw==}
+  /@iconify-json/mdi/1.1.39:
+    resolution: {integrity: sha512-Pgft3XHBEyxcT4xN8U9f0nqVuHDQFGypbU3goJZJVdI25VtKmbyPyuISsnXJq/jo2Llwz5MRocfiH4fXn3U64Q==}
     dependencies:
       '@iconify/types': 2.0.0
     dev: true

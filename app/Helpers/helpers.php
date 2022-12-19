@@ -1,13 +1,13 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
 
 if(!function_exists('navs_activate')){
   function navs_activate(array &$navs): bool{
+    // Pseudo home pages
     $homes = [
       url('/'),
-      url('/profile'),
+      url('/profil'),
       url('/visi-misi'),
       url('/produk-kami'),
       url('/kontak-kami'),
@@ -15,13 +15,13 @@ if(!function_exists('navs_activate')){
     ];
 
     for($i = 0; $i < count($navs); $i++){
-
+      // Handle edge case if current page is pseudo homepage
       if($navs[$i]['href'] === url('/') && in_array(url()->current(), $homes)){
         $navs[$i]['active'] = true;
         return true;
       }
 
-      if( $navs[$i]['href'] === url()->current()){
+      if($navs[$i]['href'] !== url('/') && Str::startsWith(url()->current(), $navs[$i]['href'])){
         $navs[$i]['active'] = true;
         return true;
       }

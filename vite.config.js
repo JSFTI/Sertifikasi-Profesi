@@ -3,6 +3,9 @@ import laravel from 'laravel-vite-plugin';
 import Unocss from 'unocss/vite';
 
 export default defineConfig({
+    build:{
+        sourcemap: true
+    },
     plugins: [
         laravel({
             input: [

@@ -35,7 +35,7 @@
                   <p>{{ $event->location }}</p>
                 </div>
               </div>
-              <a href="{{ url()->route('event', [$event->slug]) }}" class="a-btn mt-5 ml-auto">
+              <a href="{{ url()->route('event.show', [$event->slug]) }}" class="a-btn mt-5 ml-auto">
                 Baca Selengkapnya
               </a>
             </div>
@@ -61,7 +61,7 @@
               <p class="mt-3 text-gray flex-grow-1">
                 {{ Str::limit(strip_tags($article->content), 100, '...') }}
               </p>
-              <a href="{{ url()->route('article', [$article->slug]) }}" class="a-btn mt-5 ml-auto">
+              <a href="{{ url()->route('article.show', [$article->slug]) }}" class="a-btn mt-5 ml-auto">
                 Baca Selengkapnya
               </a>
             </div>

@@ -124,3 +124,35 @@ p{
   height: 4px;
   @apply bg-light rounded;
 }
+
+.content{
+  p{
+    margin-bottom: 1rem;
+  }
+}
+
+.event-meta{
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: "a"
+                       "b"
+                       "c"; 
+
+  @screen md{
+    grid-template-areas: "a c"
+                         "b c";
+  }
+
+  .meta:nth-child(1){
+    grid-area: a;
+  }
+
+  .meta:nth-child(2){
+    grid-area: b;
+  }
+
+  .meta:nth-child(3){
+    grid-area: c;
+  }
+}

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OurClientController;
@@ -27,8 +28,11 @@ Route::get('/about-us', [HomeController::class, 'aboutUs'])->name('index.aboutUs
 
 Route::get('/klien-kami', [OurClientController::class, 'index'])->name('ourClients');
 
-Route::get('/artikel/{slug}', [ArticleController::class, 'show'])->name('article');
-Route::get('/event/{slug}', [ArticleController::class, 'show'])->name('event');
+Route::get('/artikel', [ArticleController::class, 'index'])->name('article');
+Route::get('/artikel/{slug}', [ArticleController::class, 'show'])->name('article.show');
+
+Route::get('/event', [EventController::class, 'index'])->name('event');
+Route::get('/event/{slug}', [EventController::class, 'show'])->name('event.show');
 
 Route::get('/galery', [GalleryController::class, 'index'])->name('gallery');
 Route::get('/galery/{slug}', [GalleryController::class, 'show'])->name('gallery.show');

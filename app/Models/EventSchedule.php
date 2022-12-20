@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class EventSchedule extends Model
 {
-    public $timestamps = false;
     use HasFactory;
+
+    public $timestamps = false;
+    protected $dates = [
+        'start', 'end'
+    ];
 }

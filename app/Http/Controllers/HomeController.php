@@ -12,11 +12,13 @@ class HomeController extends Controller
     public function index(){
         $articles = Article::with('user')
             ->orderBy('published_at', 'DESC')
+            ->whereNotNull('published_at')
             ->limit(4)
             ->get(['id', 'title', 'thumbnail', 'slug', 'user_id', 'published_at', 'content']);
 
         $events = Event::with(['user'])
             ->orderBy('published_at', 'DESC')
+            ->whereNotNull('published_at')
             ->limit(4)
             ->get(['id', 'title', 'thumbnail', 'slug', 'location', 'user_id', 'published_at']);
 

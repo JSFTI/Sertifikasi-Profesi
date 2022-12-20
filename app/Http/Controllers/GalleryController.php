@@ -28,6 +28,11 @@ class GalleryController extends Controller
         $gallery = Gallery::where('slug', $slug)
             ->first();
 
+        if(!$gallery){
+            abort(404);
+            return;
+        }
+
         $images = GalleryImage::where('gallery_id', $gallery->id)
             ->paginate(24);
         

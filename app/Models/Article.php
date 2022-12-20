@@ -9,6 +9,10 @@ class Article extends Model
 {
     use HasFactory;
 
+    protected $dates = [
+        'published_at'
+    ];
+
     public function user(){
         return $this->belongsTo(User::class);
     }

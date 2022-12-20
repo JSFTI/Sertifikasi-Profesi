@@ -11,7 +11,7 @@
         @endif
 
         <title>{{ $title ?? config('app.name') }}</title>
-        @include('partials.imports')  
+        @include('partials.imports')
         @vite(['resources/css/main.scss', 'resources/js/main.js'])
 
         <script>

@@ -30,6 +30,7 @@
       </div>
     @endforeach
   </div>
+  
   <nav class="flex justify-center mt-10 text-2xl">
     {{ $data['articles']->links() }}
   </nav>

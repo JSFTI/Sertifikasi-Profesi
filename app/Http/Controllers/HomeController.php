@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use App\Models\Event;
 use App\Models\Gallery;
+use Auth;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller

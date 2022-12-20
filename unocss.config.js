@@ -31,9 +31,6 @@ export default defineConfig({
     {
       'a-btn': 'rounded-1 px-4 py-2 bg-secondary hover:(shadow shadow-gray) transition',
     },
-    [/^a-btn-(.*)-(.*)$/, ([, theme, shadow]) => {
-      return `bg-${theme} hover:shadow-${shadow}`;
-    }]
   ],
   presets: [
     presetUno(),

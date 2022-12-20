@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\HomeController;
@@ -37,6 +38,4 @@ Route::get('/event/{slug}', [EventController::class, 'show'])->name('event.show'
 Route::get('/galery', [GalleryController::class, 'index'])->name('gallery');
 Route::get('/galery/{slug}', [GalleryController::class, 'show'])->name('gallery.show');
 
-Route::get('/sign-in', function(){
-    return view('profile');
-});
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');

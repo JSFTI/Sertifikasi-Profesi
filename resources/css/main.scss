@@ -156,3 +156,95 @@ p{
     grid-area: c;
   }
 }
+
+.modal{
+  display: none;
+  z-index: 10000;
+
+  &.is-open{
+    display: block;
+  }
+
+  .modal-overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    
+    @apply bg-secondary bg-opacity-50 px-3;
+
+    .modal-content{
+      overflow-y: auto;
+      max-height: calc(100vh - 3rem);
+
+      @apply w-full md:w-xl bg-primary p-5 rounded;
+    }
+  }
+}
+
+.a-form-checkbox{
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  .a-form-checkbox-input{
+    appearance: none;
+    width: 1rem;
+    height: 1rem;
+    border: 1px solid rgba(0,0,0,0.25);
+    border-radius: .25rem;
+    transition: linear 200ms all;
+
+    &:focus{
+      outline: none;
+      box-shadow: 0px 0px 2px 1px;
+
+      @apply shadow-info;
+    }
+
+    &:checked[type=checkbox]{
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3e%3cpath fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10l3 3l6-6'/%3e%3c/svg%3e");      
+    }
+
+    &:checked{
+      @apply bg-info;
+    }
+  }
+}
+
+.a-form-group{
+  .a-form-label{
+    font-weight: 700;
+  }
+
+  .a-form-control{
+    display: block;
+    width: 100%;
+    margin-top: 0.5rem;
+    
+    @apply py-2 px-3 text-dark rounded focus:(ring-3 ring-info outline-none) transition-all;
+  }
+
+  .invalid-feedback{
+    display: none;
+    margin-top: 0.25rem;
+    padding: 0rem 0.5rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    
+    @apply text-danger;
+  }
+
+  &.invalid{
+    .a-form-control{
+      @apply \!ring-danger ring-3;
+    }
+
+    .invalid-feedback{
+      display: block;
+    }
+  }
+}

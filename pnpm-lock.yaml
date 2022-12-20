@@ -9,6 +9,7 @@ specifiers:
   axios: ^1.2.1
   laravel-vite-plugin: ^0.7.2
   lodash: ^4.17.21
+  micromodal: ^0.4.10
   postcss: ^8.4.20
   sass: ^1.57.1
   typescript: ^4.9.4
@@ -20,6 +21,7 @@ specifiers:
 dependencies:
   '@alpinejs/collapse': 3.10.5
   alpinejs: 3.10.5
+  micromodal: 0.4.10
   vue: 3.2.45
 
 devDependencies:
@@ -1080,6 +1082,11 @@ packages:
       braces: 3.0.2
       picomatch: 2.3.1
     dev: true
+
+  /micromodal/0.4.10:
+    resolution: {integrity: sha512-BUrEnzMPFBwK8nOE4xUDYHLrlGlLULQVjpja99tpJQPSUEWgw3kTLp1n1qv0HmKU29AiHE7Y7sMLiRziDK4ghQ==}
+    engines: {node: '>=10'}
+    dev: false
 
   /mime-db/1.52.0:
     resolution: {integrity: sha512-sPU4uV7dYlvtWJxwwxHD0PuihVNiE7TyAbQ5SWxDCB9mUYvOgroQOwYQQOKPJ8CIbE+1ETVlOoK1UC2nU3gYvg==}

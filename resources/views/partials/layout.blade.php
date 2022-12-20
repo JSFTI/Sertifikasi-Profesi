@@ -10,13 +10,14 @@
             @endforeach
         @endif
 
+        <script>
+            window.BASE_URL = `{{ url('/') }}`;
+            window.BASE_API_URL = `{{ url('/api') }}`;
+        </script>
+
         <title>{{ $title ?? config('app.name') }}</title>
         @include('partials.imports')
         @vite(['resources/css/main.scss', 'resources/js/main.js'])
-
-        <script>
-            window.BASE_URL = `{{ url('/') }}`;
-        </script>
     </head>
     <body
         x-data class="bg-[#141414] text-white"

@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Auth;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
@@ -30,51 +31,79 @@ class AppServiceProvider extends ServiceProvider
                 'href' => url('/'),
                 'active' => false,
                 'expanded' => false,
-                'label' => 'Home'
+                'label' => 'Home',
+                'auth' => null,
             ],
             [
                 'href' => url('/artikel'),
                 'active' => false,
                 'expanded' => false,
-                'label' => 'Artikel'
+                'label' => 'Artikel',
+                'auth' => null,
             ],
             [
                 'href' => url('/event'),
                 'active' => false,
                 'expanded' => false,
-                'label' => 'Event'
+                'label' => 'Event',
+                'auth' => null,
             ],
             [
                 'href' => url('/galery'),
                 'active' => false,
                 'expanded' => false,
-                'label' => 'Galery Foto'
+                'label' => 'Galery Foto',
+                'auth' => null,
             ],
             [
                 'href' => url('/klien-kami'),
                 'active' => false,
                 'expanded' => false,
-                'label' => 'Klien Kami'
+                'label' => 'Klien Kami',
+                'auth' => null,
             ],
             [
                 'href' => null,
                 'active' => false,
                 'expanded' => false,
                 'label' => 'Login',
+                'auth' => false,
                 'children' => [
                     [
-                        'href' => url('/sign-in'),
+                        'href' => null,
                         'active' => false,
                         'expanded' => false,
-                        'label' => 'Sign In'
+                        'label' => 'Sign In',
+                        'auth' => false,
+                        'attributes' => [
+                            'data-micromodal-trigger' => 'sign-in-modal'
+                        ]
                     ],
                     [
-                        'href' => url('/sign-up'),
+                        'href' => null,
                         'active' => false,
                         'expanded' => false,
-                        'label' => 'Sign Up'
+                        'label' => 'Sign Up',
+                        'auth' => false,
+                        'attributes' => [
+                            'data-micromodal-trigger' => 'sign-up-modal'
+                        ]
                     ],
                 ]
+            ],
+            [
+                'href' => url('/dashboard'),
+                'active' => false,
+                'expanded' => false,
+                'label' => 'Dashboard',
+                'auth' => true,
+            ],
+            [
+                'href' => url('/logout'),
+                'active' => false,
+                'expanded' => false,
+                'label' => 'Sign Out',
+                'auth' => true,
             ],
         ];
 

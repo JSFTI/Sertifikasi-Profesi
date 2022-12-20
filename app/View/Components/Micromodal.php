@@ -4,6 +4,9 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
+/**
+ * A simple component to use micromodal.js
+ */
 class Micromodal extends Component
 {
     /**

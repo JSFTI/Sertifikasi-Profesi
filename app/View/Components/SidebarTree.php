@@ -4,6 +4,10 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
+/**
+ * Programmatically generate sidebar tree. This component will call itself
+ * if an item has children (recursive component)
+ */
 class SidebarTree extends Component
 {
     /**
@@ -24,9 +28,6 @@ class SidebarTree extends Component
      */
     public function render()
     {
-        return view('components.sidebar-tree', [
-            'items' => $this->items,
-            'level' => $this->level
-        ]);
+        return view('components.sidebar-tree');
     }
 }

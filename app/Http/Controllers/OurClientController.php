@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 class OurClientController extends Controller
 {
     public function index(){
+        // Hardcoded
         $clients = [
             [
                 'name' => 'Bayerische Motoren Werke AG',

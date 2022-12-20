@@ -9,11 +9,17 @@ axios.defaults.baseURL = window.BASE_API_URL;
 import Alpine from 'alpinejs';
 import collapse from '@alpinejs/collapse'
 
+/**
+ * Used to scroll sub-home page navbar to current sub-page
+ */
 window.scrollToCurrentHome = function(el){
   const active = el.querySelector('.active-home');
   el.scrollLeft = active.offsetLeft;
 }
 
+/**
+ * Close sidebar if window size is less than 1024px and the overlay is clicked
+ */
 window.handleClickedOverlay = function(el){
   const target = el.target;
   if(target.id === 'main-content' && window.innerWidth <= 1024){
@@ -21,6 +27,9 @@ window.handleClickedOverlay = function(el){
   }
 }
 
+/**
+ * Take error from API and convert to key:value pair
+ */
 window.transformToInvalids = function(error){
   const errorBag = new Map();
   for(let key of Object.keys(error)){
@@ -35,6 +44,7 @@ window.Alpine = Alpine;
 
 Alpine.plugin(collapse);
 
+// Global sidebar store
 Alpine.store('sidebar', {
   expanded: false,
 
@@ -45,6 +55,7 @@ Alpine.store('sidebar', {
 
 Alpine.start();
 
+// MicroModal must be initiated after all DOM Content is loaded
 document.addEventListener('DOMContentLoaded', () => {
   MicroModal.init({
     disableScroll: true

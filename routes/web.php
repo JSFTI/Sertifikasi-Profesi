@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('/profil', [HomeController::class, 'profile'])->name('index.profile');
@@ -38,4 +39,6 @@ Route::get('/event/{slug}', [EventController::class, 'show'])->name('event.show'
 Route::get('/galery', [GalleryController::class, 'index'])->name('gallery');
 Route::get('/galery/{slug}', [GalleryController::class, 'show'])->name('gallery.show');
 
-Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('/{dashboard?}', function(){
+  return view('admin.index');
+})->where('dashboard', '^(dashboard).*$');

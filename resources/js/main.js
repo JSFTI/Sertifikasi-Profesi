@@ -1,3 +1,5 @@
+import 'uno.css';
+
 import './bootstrap';
 import 'micromodal/dist/micromodal';
 import axios from 'axios';

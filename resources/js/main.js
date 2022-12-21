@@ -8,6 +8,7 @@ axios.defaults.baseURL = window.BASE_API_URL;
 
 import Alpine from 'alpinejs';
 import collapse from '@alpinejs/collapse'
+import intersect from '@alpinejs/intersect'
 
 /**
  * Used to scroll sub-home page navbar to current sub-page
@@ -27,6 +28,28 @@ window.handleClickedOverlay = function(el){
   }
 }
 
+window.handleLoadComment = function(articleId, nextPage, commentContainer){
+  return new Promise((resolve) => {
+    axios.get(`/articles/${articleId}/comments`, {params: { cursor: nextPage }}).then((res) => {
+      const data = res.data.data;
+
+      for(let comment of data){
+        const div = document.createElement('div');
+        div.className = 'rounded bg-primary p-3';
+        div.innerHTML = `
+          <span class='font-bold'>${ comment.name }</span>
+          <div class='mt-3'>
+            ${ comment.content }
+          </div
+        `;
+        commentContainer.appendChild(div);
+      }
+
+      resolve(res.data.next_cursor);
+    });
+  });
+}
+
 /**
  * Take error from API and convert to key:value pair
  */
@@ -43,6 +66,7 @@ window.axios = axios;
 window.Alpine = Alpine;
 
 Alpine.plugin(collapse);
+Alpine.plugin(intersect);
 
 // Global sidebar store
 Alpine.store('sidebar', {

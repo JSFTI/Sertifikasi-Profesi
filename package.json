@@ -21,6 +21,7 @@
     },
     "dependencies": {
         "@alpinejs/collapse": "^3.10.5",
+        "@alpinejs/intersect": "^3.10.5",
         "alpinejs": "^3.10.5",
         "micromodal": "^0.4.10",
         "vue": "^3.2.45"

@@ -67,6 +67,7 @@
 .block{display:block;}
 .inline-block{display:inline-block;}
 .aspect-ratio-16\/9{aspect-ratio:16/9;}
+.h-10{height:2.5rem;}
 .h-30{height:7.5rem;}
 .h-30vh{height:30vh;}
 .h-70vh{height:70vh;}
@@ -79,6 +80,7 @@
 [h1=""]{height:0.25rem;}
 [h2=""]{height:0.5rem;}
 [h3=""]{height:0.75rem;}
+[h5=""]{height:1.25rem;}
 .flex{display:flex;}
 .inline-flex{display:inline-flex;}
 .flex-grow,

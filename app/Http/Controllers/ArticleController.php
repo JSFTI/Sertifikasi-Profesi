@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Article;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 
 class ArticleController extends Controller
@@ -24,7 +25,7 @@ class ArticleController extends Controller
     }
 
     public function show(string $slug){
-        $article = Article::with(['user', 'category', 'comments'])
+        $article = Article::with(['user', 'category'])
             ->where('slug', $slug)
             ->whereNotNull('published_at')
             ->first();
@@ -33,6 +34,11 @@ class ArticleController extends Controller
             abort(404);
             return;
         }
+
+        $comments = Comment::where('article_id', $article->id)
+            ->cursorPaginate(15);
+
+        $article->setRelation('comments', $comments);
 
         $others = Article::where('id', '!=', $article->id)
             ->whereNotNull('published_at')

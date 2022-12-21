@@ -26,17 +26,40 @@
       </div>
     </article>
     <hr class="border-gray border-opacity-50 my-10" />
-    <div>
+    <div x-data="{
+      loading: false,
+      nextPage: `{{ $data['article']->comments->nextCursor()?->encode() ?: '' }}`
+    }">
       <h5 class="text-2xl font-500 mb-5">Comments</h5>
-      <div class="flex flex-col gap-5">
-        @foreach ($data['article']->comments as $comment)
-          <div class="rounded bg-primary p-3">
-            <span class="font-bold">{{ $comment->name }}</span>
-            <div class="mt-3">
-              {{ $comment->content }}
+      <div>
+        <div class="flex flex-col gap-5" id="comment-container">
+          @foreach ($data['article']->comments as $comment)
+            <div class="rounded bg-primary p-3">
+              <span class="font-bold">{{ $comment->name }}</span>
+              <div class="mt-3">
+                {{ $comment->content }}
+              </div>
             </div>
+          @endforeach
+        </div>
+        @if ($data['article']->comments->hasMorePages())
+          <div class="h-10 w-full" id="comment-intersector" x-intersect="
+            if(!loading && nextPage){
+              loading = true;
+              handleLoadComment({{ $data['article']->id }}, nextPage, document.getElementById('comment-container'))
+                .then((next) => {
+                  nextPage = next;
+                  if(!next){
+                    document.getElementById('comment-intersector').remove();
+                  }
+                })
+                .finally(() => {
+                  loading = false;
+                });
+            }
+          ">
           </div>
-        @endforeach
+        @endif
       </div>
     </div>
   </div>

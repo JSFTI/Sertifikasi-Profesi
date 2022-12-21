@@ -76,7 +76,7 @@ class AppServiceProvider extends ServiceProvider
                         'label' => 'Sign In',
                         'auth' => false,
                         'attributes' => [
-                            'data-micromodal-trigger' => 'sign-in-modal'
+                            'onclick' => 'MicroModal.show(\'sign-in-modal\')'
                         ]
                     ],
                     [
@@ -86,7 +86,7 @@ class AppServiceProvider extends ServiceProvider
                         'label' => 'Sign Up',
                         'auth' => false,
                         'attributes' => [
-                            'data-micromodal-trigger' => 'sign-up-modal'
+                            'onclick' => 'MicroModal.show(\'sign-up-modal\')'
                         ]
                     ],
                 ]

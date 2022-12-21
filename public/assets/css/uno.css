@@ -37,10 +37,9 @@
 }
 /* layer: default */
 [items~="\$item\["]{align-items:var(--item\[);}
-[items~="\$sidebars"]{align-items:var(--sidebars);}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0;}
 .absolute{position:absolute;}
-.relative,
-[relative=""]{position:relative;}
+.relative{position:relative;}
 .right-0{right:0rem;}
 .top-0{top:0rem;}
 .grid{display:grid;}
@@ -66,6 +65,7 @@
 .mt-auto{margin-top:auto;}
 .inline{display:inline;}
 .block{display:block;}
+.inline-block{display:inline-block;}
 .aspect-ratio-16\/9{aspect-ratio:16/9;}
 .h-30{height:7.5rem;}
 .h-30vh{height:30vh;}
@@ -79,8 +79,7 @@
 [h1=""]{height:0.25rem;}
 [h2=""]{height:0.5rem;}
 [h3=""]{height:0.75rem;}
-.flex,
-[flex=""]{display:flex;}
+.flex{display:flex;}
 .inline-flex{display:inline-flex;}
 .flex-grow,
 .flex-grow-1{flex-grow:1;}
@@ -103,6 +102,9 @@
 .gap-5{grid-gap:1.25rem;gap:1.25rem;}
 .overflow-x-auto{overflow-x:auto;}
 .whitespace-nowrap{white-space:nowrap;}
+[b=""]{border-width:1px;border-style:solid;}
+.border-gray{--un-border-opacity:1;border-color:rgba(156,163,175,var(--un-border-opacity));}
+.border-opacity-50{--un-border-opacity:0.5;}
 .rounded{border-radius:0.25rem;}
 .rounded-full{border-radius:9999px;}
 .rounded-tl{border-top-left-radius:0.25rem;}
@@ -122,12 +124,13 @@
 .p-4{padding:1rem;}
 .p-5{padding:1.25rem;}
 .px-10{padding-left:2.5rem;padding-right:2.5rem;}
+.px-2{padding-left:0.5rem;padding-right:0.5rem;}
 .px-3{padding-left:0.75rem;padding-right:0.75rem;}
 .px-5{padding-left:1.25rem;padding-right:1.25rem;}
+.py-1{padding-top:0.25rem;padding-bottom:0.25rem;}
 .py-2{padding-top:0.5rem;padding-bottom:0.5rem;}
 .py-4{padding-top:1rem;padding-bottom:1rem;}
 .py-6{padding-top:1.5rem;padding-bottom:1.5rem;}
-[px=""]{padding-left:1rem;padding-right:1rem;}
 .pl-5{padding-left:1.25rem;}
 .pr-8{padding-right:2rem;}
 .pt-3{padding-top:0.75rem;}
@@ -140,6 +143,7 @@
 .text-9xl{font-size:8rem;line-height:1;}
 .text-lg{font-size:1.125rem;line-height:1.75rem;}
 .text-xl{font-size:1.25rem;line-height:1.75rem;}
+.font-500{font-weight:500;}
 .font-600{font-weight:600;}
 .font-700,
 .font-bold{font-weight:700;}

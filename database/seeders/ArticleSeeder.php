@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Article;
+use App\Models\Category;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -24,13 +25,17 @@ class ArticleSeeder extends Seeder
 
         $writer_id = User::select('id')->whereRoleIs('admin')->first()->id;
 
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         DB::table('articles')->truncate();
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 
         DB::beginTransaction();
         
         $client = new Client([
             'allow_redirects' => false
         ]);
+
+        $categories = Category::all();
 
         for($i = 0; $i < 123; $i++){
             $thumbnail = $client->request('GET', sprintf('https://picsum.photos/%d/%d', 16 * 90, 9 * 90))
@@ -42,7 +47,10 @@ class ArticleSeeder extends Seeder
             $article->slug = Str::slug($article->title);
             $article->content = array_reduce($factory->paragraphs(5), fn($p, $c) => $p . "<p>{$c}</p>", '');
             $article->published_at = now()->format('Y-m-d H:i:s');
-            $article->save();
+
+            $article->category_id = $categories->random()->id;
+
+            $article->save();   
         }
 
         DB::commit();

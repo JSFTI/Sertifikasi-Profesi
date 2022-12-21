@@ -24,7 +24,7 @@ class ArticleController extends Controller
     }
 
     public function show(string $slug){
-        $article = Article::with('user')
+        $article = Article::with(['user', 'category', 'comments'])
             ->where('slug', $slug)
             ->whereNotNull('published_at')
             ->first();
